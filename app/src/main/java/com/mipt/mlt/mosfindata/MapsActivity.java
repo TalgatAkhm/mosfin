@@ -1,8 +1,14 @@
 package com.mipt.mlt.mosfindata;
 
+import android.app.ActionBar;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private PolygonOptions moscowBounds;
@@ -29,6 +35,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -58,9 +67,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         int width = getResources().getDisplayMetrics().widthPixels;
         int height = getResources().getDisplayMetrics().heightPixels;
+        int padding = (int) (width * 0.12);
 
         LatLngBounds latLngBounds = getPolygonLatLngBounds(moscowBounds.getPoints());
-        int padding = (int) (width * 0.12);
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, width,
                 height, padding));
     }

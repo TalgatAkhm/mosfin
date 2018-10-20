@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="peacock_blue">#074f9e</color>
+    <color name="soft_blue">#6b9ce4</color>
+    <color name="disable_icons">#afb5bb</color>
+    <color name="disable_text">#979fa7</color>
+    <color name="salmon">#ff8a65</color>
+    <color name="grey_bg_light">#f5f5f7</color>
+    <color name="grey_bg">#efeff1</color>
+    <color name="disable_color_bg_lines">#dcdee2</color>
+    <color name="hint_input">#99a1a9</color>
+    <color name="error_msg">#FF0000</color>
+    <color name="bottom_nav_bar_background">#fefeff</color>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#6b9ce4</color>
+    <color name="loginButtons">#92cbc5</color>
+    <color name="buttonWithoutBorderColor">#8ec4be</color>
+    <color name="loginActivityText">#000000</color>
+    <color name="my_message">#0d00ff</color>
+    <color name="dispatcher_message">#aeaeae</color>
+    <color name="trueStrokeColor">#377b2f</color>
+    <color name="falseStrokeColor">#872525</color>
+    <color name="trueFenceColor">#772bff00</color>
+    <color name="falseFenceColor">#83ff0109</color>
+
+    <color name="cornflower_blue">#6274e2</color>
+    <color name="cornflower_blue_dark">#303F9F</color>
+    <color name="cornflower_blue_darkest">#2d3a93</color>
+    <color name="gray">#ebebeb</color>
+    <color name="gray_light">#e8e8e8</color>
+    <color name="gray_transparent">#a6efefef</color>
+    <color name="gray_dark">#858585</color>
+    <color name="gray_dark_transparent">#ae858585</color>
+    <color name="gray_darkest">#ae282828</color>
+    <color name="black">#000000</color>
+    <color name="black_10">#19000000</color>
+    <color name="ivory">#f8efe6</color>
+    <color name="ivory_dark">#f7e8d9</color>
+    <color name="green">#38be55</color>
+    <color name="green_dark">#2da346</color>
+    <color name="red">#e94f4f</color>
+    <color name="brown">#4e342e</color>
+    <color name="audio_message_bg">#ffab91</color>
+    <color name="chat_bg">#f7f7f9</color>
 </resources>
