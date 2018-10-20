@@ -128,13 +128,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, width,
                 height, padding));
 
-        googleMap.setOnMapClickListener(latLng -> {
-            if (bottomNavigationPanel.getVisibility() == View.VISIBLE) {
-                animateBottom();
-            } else {
-                animateTop();
-            }
-        });
+//        googleMap.setOnMapClickListener(latLng -> {
+//            if (bottomNavigationPanel.getVisibility() == View.VISIBLE) {
+//                animateBottom();
+//            } else {
+//                animateTop();
+//            }
+//        });
 
         drawDotes(0);
     }
