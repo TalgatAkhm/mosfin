@@ -39,6 +39,7 @@
             app:scaleStep="5"
             />
         <TextView
+            android:id="@+id/range_slider1_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -70,6 +71,7 @@
             app:scaleStep="5"
             />
         <TextView
+            android:id="@+id/range_slider2_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,6 +103,7 @@
             app:scaleStep="5"
             />
         <TextView
+            android:id="@+id/range_slider3_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,6 +135,7 @@
             app:scaleStep="5"
             />
         <TextView
+            android:id="@+id/range_slider4_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -151,6 +155,7 @@
         android:background="#fefeff"
         android:textSize="16sp"
         android:textColor="@color/peacock_blue"
+        android:layout_marginTop="10dp"
         android:text="Выберите метрику"/>
 
     <View
@@ -167,8 +172,8 @@
             android:id="@+id/no_metrics"
             android:layout_weight="1"
             android:layout_margin="3dp"
-            android:background="@drawable/metric_button"
-            android:textColor="@color/peacock_blue"
+            android:background="@drawable/metric_button_active"
+            android:textColor="@color/white"
             android:text="Общая"/>
         <Button
             android:id="@+id/metrics1_button"
