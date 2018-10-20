@@ -6,6 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_container">
 
+    <include
+        android:id="@+id/user_menu_view"
+        layout="@layout/view_user_menu"
+        android:visibility="gone"/>
+
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

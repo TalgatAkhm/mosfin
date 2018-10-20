@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,18 +24,45 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.mipt.mlt.mosfindata.model.Category;
 import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
+import com.mipt.mlt.mosfindata.model.Category;
+import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.apptik.widget.MultiSlider;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    @BindView(R.id.user_menu_view)
+    LinearLayout userMenuView;
+
+    @BindView(R.id.range_slider1)
+    MultiSlider rangeSlider1;
+
+    @BindView(R.id.range_slider2)
+    MultiSlider rangeSlider2;
+
+    @BindView(R.id.range_slider3)
+    MultiSlider rangeSlider3;
+
+    @BindView(R.id.range_slider4)
+    MultiSlider rangeSlider4;
+
     private GoogleMap googleMap;
     private PolygonOptions moscowBounds;
+
+    private boolean isUserMenuShown = false;
+    private boolean isUserMenuAnimated = true;
+    private float animationHeight;
 
     private LinearLayout bottomNavigationPanel;
 
@@ -47,6 +76,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        ButterKnife.bind(this);
+        animationHeight = Utils.dpToPx(56);
         bottomNavigationPanel = findViewById(R.id.bottom_agregation_menu);
 
         startY = bottomNavigationPanel.getY();
@@ -79,6 +110,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         moscowBounds.fillColor(Color.argb(127, 107, 156, 228))
                 .strokeColor(Color.argb(127, 107, 156, 228));
+
+        rangeSlider1.getThumb(0).setValue(50);
+        rangeSlider2.getThumb(0).setValue(25);
+        rangeSlider3.getThumb(0).setValue(75);
+        rangeSlider4.getThumb(0).setValue(10);
     }
 
     @Override
@@ -109,6 +145,50 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             centerBuilder.include(point);
         }
         return centerBuilder.build();
+    }
+
+    @OnClick(R.id.metrics1_button)
+    public void metrics1ButtonClicked() {
+
+    }
+
+    @OnClick(R.id.metrics2_button)
+    public void metrics2ButtonClicked() {
+
+    }
+
+    @OnClick(R.id.user_button)
+    public void userButtonClicked() {
+        if (isUserMenuAnimated && !isUserMenuShown || isUserMenuShown) {
+            animateUserMenu();
+            isUserMenuShown = !isUserMenuShown;
+            isUserMenuAnimated = false;
+        }
+    }
+
+    private void animateUserMenu() {
+        if (!isUserMenuShown) {
+            userMenuView.setVisibility(View.VISIBLE);
+            userMenuView.setAlpha(0.0f);
+            userMenuView.bringToFront();
+            userMenuView.animate()
+                    .translationY(animationHeight)
+                    .alpha(1.0f);
+        } else {
+            userMenuView.animate()
+                    .translationY(0)
+                    .alpha(0.0f)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            if (!isUserMenuShown) {
+                                userMenuView.setVisibility(View.GONE);
+                                isUserMenuAnimated = true;
+                            }
+                        }
+                    });
+        }
     }
 
     private void configPanel() {
