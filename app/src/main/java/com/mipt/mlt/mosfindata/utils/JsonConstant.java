@@ -16,9 +16,11 @@ import java.util.List;
 
 public class JsonConstant {
 
-    static final String[] FILE_NAMES = {"cleaning", "cosmetics"};
+    static final String[] FILE_NAMES = {"shoes", "clocks", "cosmetics", "cleaning", "photo"};
+    static final String[] TRANSPORT_FILE_NAMES = {"metro"};
 
     static public List<List<LatLng>> jsonData = new ArrayList<>();
+    static public List<List<LatLng>> jsonDataTransport = new ArrayList<>();
 
     public static void fillFromAssets(Context context) {
         for (String category : FILE_NAMES) {
@@ -39,6 +41,25 @@ public class JsonConstant {
                 e.printStackTrace();
             }
             jsonData.add(currentPoints);
+        }
+
+        for (String transport : TRANSPORT_FILE_NAMES) {
+            List<LatLng> currentPoints = new ArrayList<>();
+            String json = readJSONFromAsset(context, transport+".json");
+            try {
+
+                JSONArray points = new JSONObject(json).getJSONArray("dotes");
+                for (int i = 0; i < points.length(); i++) {
+                    JSONObject objectJson = points.getJSONObject(i);
+                    double lat = (double) objectJson.getJSONArray("coordinates").get(0);
+                    double lon = (double) objectJson.getJSONArray("coordinates").get(1);
+                    currentPoints.add(new LatLng(lat, lon));
+                }
+            } catch (JSONException e) {
+                Log.e("JsonConstant", "Failed to load json object");
+                e.printStackTrace();
+            }
+            jsonDataTransport.add(currentPoints);
         }
     }
 

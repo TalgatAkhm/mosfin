@@ -1,0 +1,51 @@
+{ "dotes": [{
+    "coordinates":[55.7288360922, 37.5856793246],
+    "radius":12.0,
+    "intensity":86
+  },
+  {
+    "coordinates":[55.7221977378, 37.5666682534],
+    "radius":11.0,
+    "intensity":83
+  },
+  {
+    "coordinates":[55.7839351594, 37.5984479639],
+    "radius":13.0,
+    "intensity":62
+  },
+  {
+    "coordinates":[55.7331130529, 37.582255467],
+    "radius":13.0,
+    "intensity":87
+  },
+  {
+    "coordinates":[55.7494981185, 37.6571161307],
+    "radius":13.0,
+    "intensity":61
+  },
+  {
+    "coordinates":[55.7266860331, 37.5641473534],
+    "radius":8.0,
+    "intensity":60
+  },
+  {
+    "coordinates":[55.7010576601, 37.6117292657],
+    "radius":13.0,
+    "intensity":66
+  },
+  {
+    "coordinates":[55.7543559126, 37.5739870862],
+    "radius":10.0,
+    "intensity":78
+  },
+  {
+    "coordinates":[55.7179576228, 37.5936496471],
+    "radius":13.0,
+    "intensity":68
+  },
+  {
+    "coordinates":[55.7160679866, 37.5863467176],
+    "radius":9.0,
+    "intensity":56
+  }
+]}
