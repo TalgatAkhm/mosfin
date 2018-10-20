@@ -4,8 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,19 +17,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.mipt.mlt.mosfindata.model.Category;
 import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
-import com.mipt.mlt.mosfindata.model.Category;
-import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
+import com.mipt.mlt.mosfindata.utils.JsonConstant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,6 +73,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+
         ButterKnife.bind(this);
         animationHeight = Utils.dpToPx(56);
         bottomNavigationPanel = findViewById(R.id.bottom_agregation_menu);
@@ -108,8 +106,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             e.printStackTrace();
         }
 
-        moscowBounds.fillColor(Color.argb(127, 107, 156, 228))
-                .strokeColor(Color.argb(127, 107, 156, 228));
+        moscowBounds.fillColor(Color.argb(0, 107, 156, 228))
+                .strokeColor(Color.argb(100, 107, 156, 228));
 
         rangeSlider1.getThumb(0).setValue(50);
         rangeSlider2.getThumb(0).setValue(25);
@@ -137,6 +135,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 animateTop();
             }
         });
+
+        drawDotes(0);
+    }
+
+    private void drawDotes(int index) {
+        List<LatLng> dotes = JsonConstant.jsonData.get(index);
+
+        for (LatLng latLng : dotes) {
+            googleMap.addCircle(new CircleOptions()
+                    .center(latLng)
+                    .radius(700)
+                    .strokeWidth(0)
+                    .fillColor(Color.argb(30, 107, 156, 228)));
+
+            googleMap.addCircle(new CircleOptions()
+                    .center(latLng)
+                    .radius(100)
+                    .strokeWidth(0)
+                    .fillColor(Color.argb(255, 107, 156, 228)));
+        }
     }
 
     private LatLngBounds getPolygonLatLngBounds(List<LatLng> polygon) {

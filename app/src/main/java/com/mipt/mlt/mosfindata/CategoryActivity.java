@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.mipt.mlt.mosfindata.model.Category;
 import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
+import com.mipt.mlt.mosfindata.utils.JsonConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,9 @@ public class CategoryActivity extends AppCompatActivity implements CategoryRecyc
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_activity);
+
+        JsonConstant.fillFromAssets(this);
+
 
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
