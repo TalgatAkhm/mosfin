@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fefeff">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:elevation="4dp"
+        android:background="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Население"
+            android:layout_weight="1"/>
+        <io.apptik.widget.MultiSlider
+            android:id="@+id/range_slider1"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="8"
+
+            app:stepsThumbsApart="2"
+            app:thumbNumber="1"
+            app:drawThumbsApart="true"
+            app:scaleMax="100"
+            app:scaleStep="5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x 0.50"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Транспорт"
+            android:layout_weight="1"/>
+        <io.apptik.widget.MultiSlider
+            android:id="@+id/range_slider2"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="8"
+
+            app:stepsThumbsApart="2"
+            app:thumbNumber="1"
+            app:drawThumbsApart="true"
+            app:scaleMax="100"
+            app:scaleStep="5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x 0.75"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Центр притяжения"
+            android:layout_weight="1"/>
+        <io.apptik.widget.MultiSlider
+            android:id="@+id/range_slider3"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="8"
+
+            app:stepsThumbsApart="2"
+            app:thumbNumber="1"
+            app:drawThumbsApart="true"
+            app:scaleMax="100"
+            app:scaleStep="5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x 0.25"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Деловая активность"
+            android:layout_weight="1"/>
+        <io.apptik.widget.MultiSlider
+            android:id="@+id/range_slider4"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="8"
+
+            app:stepsThumbsApart="2"
+            app:thumbNumber="1"
+            app:drawThumbsApart="true"
+            app:scaleMax="100"
+            app:scaleStep="5"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x 0.10"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_bg"/>
+
+    <TextView
+        android:id="@+id/username_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="#fefeff"
+        android:textSize="16sp"
+        android:textColor="@color/peacock_blue"
+        android:text="Выберите метрику"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/no_metrics"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/metric_button"
+            android:textColor="@color/peacock_blue"
+            android:text="Общая"/>
+        <Button
+            android:id="@+id/metrics1_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/metric_button"
+            android:textColor="@color/peacock_blue"
+            android:text="Население"/>
+        <Button
+            android:id="@+id/metrics2_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/metric_button"
+            android:textColor="@color/peacock_blue"
+            android:text="Транспорт"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/metric_button"
+            android:textColor="@color/peacock_blue"
+            android:text="Центр притяжения"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@drawable/metric_button"
+            android:textColor="@color/peacock_blue"
+            android:text="Деловая активность"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#777"
+        android:alpha="0.5"/>
+
+</LinearLayout>
