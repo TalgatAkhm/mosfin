@@ -1,6 +1,7 @@
 package com.mipt.mlt.mosfindata;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +18,21 @@ import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity implements CategoryRecyclerAdapter.ItemClickListener {
 
-    public static String[] titles = {"Ремонт, окраска и пошив обуви", "Ремонт часов", "Парикмахерские и косметические услуги",
-            "Химическая чистка и крашение", "Фотоателье, фотоуслуги"};
-    private String[] descs = {"Магазины цветов, услуги флористов", "Удобрения, скотоводческие базы",
-            "Инструменты для ремонта и строительства", "Заведения быстрого питания, кафе, бары", "Товары для животных",
-            "Фото мастерские", "Продуктовые магазины"};
+    public static String[] titles = {
+            "Ремонт обуви", "Часовые мастерсике", "Парикмахерские",
+            "Химическая чистка", "Фотоателье", "Название категории", "Название категории", "Название категории",
+            "Название категории", "Название категории", "Название категории"};
+    private String[] descs = {"Услуги ремонта, окраски и пошива обуви", "Услуги ремонта часов",
+            "Салоны красоты и косметические услуги", "Услуги химической чистки и прачечной",
+            "Фотосалоны, услуги печати фотографий", "Описание категории", "Описание категории", "Описание категории"
+            , "Описание категории", "Описание категории", "Описание категории"};
 
+    private int[] images = {R.drawable.shoes_bl, R.drawable.watches, R.drawable.haircut,
+            R.drawable.wash, R.drawable.camera};
 
+    private int[] bgColors = {Color.parseColor("#a29bfe"), Color.parseColor("#74b9ff"),
+            Color.parseColor("#ff7675"), Color.parseColor("#fd79a8"),
+            Color.parseColor("#55efc4")};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +52,11 @@ public class CategoryActivity extends AppCompatActivity implements CategoryRecyc
     private List<Category> createCategories() {
         List<Category> categories = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
-            categories.add(new Category(titles[i], descs[i]));
+            if (images.length <= i) {
+                categories.add(new Category(titles[i], descs[i]));
+            } else {
+                categories.add(new Category(titles[i], descs[i], images[i], bgColors[i]));
+            }
         }
         return categories;
     }

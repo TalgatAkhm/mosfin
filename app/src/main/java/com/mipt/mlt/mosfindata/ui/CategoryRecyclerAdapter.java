@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mipt.mlt.mosfindata.R;
@@ -39,6 +40,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         holder.titleTV.setText(categories.get(position).getTitle());
         holder.desTV.setText(categories.get(position).getDes());
         holder.photoIM.setImageResource(categories.get(position).getPhoto());
+        holder.imageContainer.setBackgroundColor(categories.get(position).getBgColor());
         holder.cardView.setOnClickListener(v -> listener.onClick(position));
     }
 
@@ -52,6 +54,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         CardView cardView;
         ImageView photoIM;
         TextView titleTV, desTV;
+        RelativeLayout imageContainer;
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +62,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
             photoIM = itemView.findViewById(R.id.photoIM);
             titleTV = itemView.findViewById(R.id.titleTV);
             desTV = itemView.findViewById(R.id.desTV);
+            imageContainer = itemView.findViewById(R.id.image_container);
         }
     }
 
