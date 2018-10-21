@@ -50,13 +50,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @BindView(R.id.range_slider1)
     MultiSlider rangeSlider1;
-
     @BindView(R.id.range_slider2)
     MultiSlider rangeSlider2;
-
     @BindView(R.id.range_slider3)
     MultiSlider rangeSlider3;
-
     @BindView(R.id.range_slider4)
     MultiSlider rangeSlider4;
 
