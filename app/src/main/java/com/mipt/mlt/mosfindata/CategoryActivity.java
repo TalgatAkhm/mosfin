@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity implements CategoryRecyclerAdapter.ItemClickListener {
 
-    private String[] titles = {"Ремонт, окраска и пошив обуви", "Ремонт часов", "Парикмахерские и косметические услуги",
+    public static String[] titles = {"Ремонт, окраска и пошив обуви", "Ремонт часов", "Парикмахерские и косметические услуги",
             "Химическая чистка и крашение", "Фотоателье, фотоуслуги"};
     private String[] descs = {"Магазины цветов, услуги флористов", "Удобрения, скотоводческие базы",
             "Инструменты для ремонта и строительства", "Заведения быстрого питания, кафе, бары", "Товары для животных",

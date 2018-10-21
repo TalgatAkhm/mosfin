@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.mipt.mlt.mosfindata.model.Category;
+import com.mipt.mlt.mosfindata.model.PointData;
 import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
 import com.mipt.mlt.mosfindata.utils.JsonConstant;
 
@@ -38,6 +39,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.apptik.widget.MultiSlider;
+
+import static com.mipt.mlt.mosfindata.CategoryActivity.titles;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
         MultiSlider.OnThumbValueChangeListener {
@@ -73,6 +76,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @BindView(R.id.metrics2_button)
     Button metrics2Button;
 
+    @BindView(R.id.toolbar_title_tv)
+    TextView toolbarTitleTV;
+
     private GoogleMap googleMap;
     private PolygonOptions moscowBounds;
 
@@ -99,6 +105,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         type = getIntent().getIntExtra("categoryId", 0);
 
         ButterKnife.bind(this);
+        toolbarTitleTV.setText(titles[type]);
         alphas = new ArrayList<>();
         animationHeight = Utils.dpToPx(56);
         bottomNavigationPanel = findViewById(R.id.bottom_agregation_menu);
@@ -167,7 +174,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //            }
 //        });
 
-        drawCompaniesDotes(type);
+        drawAllMetrics(type);
     }
 
     private void drawCompaniesDotes(int index) {
@@ -188,7 +195,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    private void drawTransportDotes(int index) {
+    private void drawTransportDotes(int index, int color) {
         List<LatLng> dotes = JsonConstant.jsonDataTransport.get(index);
 
         for (LatLng latLng : dotes) {
@@ -196,13 +203,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .center(latLng)
                     .radius(900)
                     .strokeWidth(0)
-                    .fillColor(Color.argb(30, 207, 156, 228)));
+                    .fillColor(color));
 
             googleMap.addCircle(new CircleOptions()
                     .center(latLng)
                     .radius(100)
                     .strokeWidth(0)
                     .fillColor(Color.argb(255, 207, 156, 228)));
+        }
+    }
+
+    private void drawAllMetrics(int type) {
+        List<PointData> currentPointData = JsonConstant.allMetricsData.get(type);
+
+        for (PointData pointData : currentPointData) {
+            googleMap.addCircle(new CircleOptions()
+                    .center(pointData.getLocation())
+                    .radius(900)
+                    .strokeWidth(0)
+                    .fillColor(Color.argb(pointData.getIntensity(), 107, 156, 228)));
         }
     }
 
@@ -226,7 +245,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         metrics1Button.setTextColor(getResources().getColor(R.color.peacock_blue));
 
         googleMap.clear();
-        drawCompaniesDotes(type);
+        drawAllMetrics(type);
     }
 
     @OnClick(R.id.metrics1_button)
@@ -254,7 +273,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         metrics1Button.setTextColor(getResources().getColor(R.color.peacock_blue));
 
         googleMap.clear();
-        drawTransportDotes(0);
+        drawTransportDotes(0, Color.argb(150, 207, 156, 228));
+        drawTransportDotes(1, Color.argb(150, 107, 255, 228));
     }
 
     @OnClick(R.id.user_button)

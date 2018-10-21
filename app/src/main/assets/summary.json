@@ -1,0 +1,42 @@
+[
+  {
+    "coordinates":[55.7272628023, 37.5835388068],
+    "intensity":57
+  },
+  {
+    "coordinates":[55.7672458798, 37.6246218619],
+    "intensity":59
+  },
+  {
+    "coordinates":[55.720545834, 37.5933404801],
+    "intensity":100
+  },
+  {
+    "coordinates":[55.7229269705, 37.6141225909],
+    "intensity":69
+  },
+  {
+    "coordinates":[55.7121517957, 37.6404894689],
+    "intensity":77
+  },
+  {
+    "coordinates":[55.708337865, 37.583822445],
+    "intensity":79
+  },
+  {
+    "coordinates":[55.7288946114, 37.6312351213],
+    "intensity":75
+  },
+  {
+    "coordinates":[55.7062578633, 37.6389773635],
+    "intensity":96
+  },
+  {
+    "coordinates":[55.7127348541, 37.6214684009],
+    "intensity":60
+  },
+  {
+    "coordinates":[55.7600743174, 37.5607303238],
+    "intensity":57
+  }
+]
