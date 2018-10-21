@@ -171,7 +171,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //            }
 //        });
 
-        drawAllMetrics(type);
+        drawAllMetrics(0);
+        drawCompaniesDotes(1);
+//        drawAllMetrics(type);
     }
 
     private void drawCompaniesDotes(int index) {
@@ -182,13 +184,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .center(latLng)
                     .radius(900)
                     .strokeWidth(0)
-                    .fillColor(Color.argb(30, 107, 156, 228)));
-
-            googleMap.addCircle(new CircleOptions()
-                    .center(latLng)
-                    .radius(100)
-                    .strokeWidth(0)
-                    .fillColor(Color.argb(255, 107, 156, 228)));
+                    .fillColor(Color.argb(30, 207, 156, 228)));
+//
+//            googleMap.addCircle(new CircleOptions()
+//                    .center(latLng)
+//                    .radius(100)
+//                    .strokeWidth(0)
+//                    .fillColor(Color.argb(255, 107, 156, 228)));
         }
     }
 

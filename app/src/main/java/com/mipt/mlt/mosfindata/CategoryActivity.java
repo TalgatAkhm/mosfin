@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import com.mipt.mlt.mosfindata.model.Category;
 import com.mipt.mlt.mosfindata.ui.CategoryRecyclerAdapter;
@@ -31,6 +32,8 @@ public class CategoryActivity extends AppCompatActivity implements CategoryRecyc
 
         JsonConstant.fillFromAssets(this);
 
+        Toolbar toolbar = findViewById(R.id.category_toolbar);
+        toolbar.setTitle("Выбор рубрики");
 
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));

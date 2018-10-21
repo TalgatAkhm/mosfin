@@ -19,7 +19,7 @@ public class JsonConstant {
 
     static final String[] FILE_NAMES = {"shoes", "clocks", "cosmetics", "cleaning", "photo"};
     static final String[] TRANSPORT_FILE_NAMES = {"calc_metro", "calc_tpu"};
-    static final String[] ALL_METRICS_FILE = {"summary"};
+    static final String[] ALL_METRICS_FILE = {"intensity_cloks"};
 
     static public List<List<LatLng>> jsonData = new ArrayList<>();
     static public List<List<LatLng>> jsonDataTransport = new ArrayList<>();
